@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 
 const EpisodeCard = props => {
-  const { name, air_date, episode, characters } = props.episode;
+  const { name, air_date, episode } = props.episode;
   return (
     <Card>
       <Card.Content header={`${name}`} />
@@ -11,7 +11,7 @@ const EpisodeCard = props => {
         <p>Episode: {episode}</p>
       </Card.Content>
       <Card.Content extra>
-        <a>
+        <a href="/">
           <Icon name="user" />
           Characters
         </a>
