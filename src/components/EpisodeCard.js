@@ -1,20 +1,23 @@
 import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 
-export default function LocationCard({ name, type, dimension, residents }) {
+const EpisodeCard = props => {
+  const { name, air_date, episode } = props.episode;
   return (
     <Card>
-      <Card.Content header={name} />
+      <Card.Content header={`${name}`} />
       <Card.Content>
-        <p>Type: {type}</p>
-        <p>Dimension: {dimension}</p>
+        <p>Air Date: {air_date}</p>
+        <p>Episode: {episode}</p>
       </Card.Content>
       <Card.Content extra>
         <a href="/">
           <Icon name="user" />
-          Residents
+          Characters
         </a>
       </Card.Content>
     </Card>
   );
-}
+};
+
+export default EpisodeCard;
