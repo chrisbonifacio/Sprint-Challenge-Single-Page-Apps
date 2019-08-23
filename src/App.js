@@ -4,15 +4,19 @@ import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList";
 import EpisodeList from "./components/EpisodeLIst.js";
 import LocationsList from "./components/LocationsList.js";
+import WelcomePage from "./components/WelcomePage";
+import { Route } from "react-router-dom";
 
 export default function App() {
   return (
     <main>
       <Header />
       {/* <TabNav /> */}
-      <CharacterList />
-      <EpisodeList />
-      <LocationsList />
+      <TabNav />
+      <Route exact path="/" component={WelcomePage} />
+      <Route exact path="/characters" component={CharacterList} />
+      <Route exact path="/locations" component={LocationsList} />
+      <Route exact path="/episodes" component={EpisodeList} />
     </main>
   );
 }

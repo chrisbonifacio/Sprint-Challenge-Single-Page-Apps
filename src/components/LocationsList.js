@@ -20,7 +20,7 @@ export default function LocationsList() {
   return (
     <div className="grid-view">
       {locations.map(location => {
-        return <LocationCard {...location} />;
+        return <LocationCard key={location.id} {...location} />;
       })}
     </div>
   );
