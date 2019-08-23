@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab, Menu, Icon } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
+import SearchForm from "./SearchForm";
 
 // TODO: Add missing tabs below
 // Take a look at React Semantic UI tabs
