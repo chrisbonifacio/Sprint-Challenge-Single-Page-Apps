@@ -4,6 +4,7 @@ import { Card, Icon, Image } from "semantic-ui-react";
 export default function CharacterCard(props) {
   console.log(props);
   const {
+    id,
     image,
     name,
     species,
