@@ -4,33 +4,39 @@ import CharacterCard from "./CharacterCard";
 
 export default function SearchForm({
   onSearch,
-  charName,
-  setCharName,
-  searchChar
+  name,
+  setName,
+  searchData,
+  setSearchData
 }) {
   // STRETCH TODO: Add stateful logic for query/form data
 
   const handleInputChange = event => {
-    setCharName(event.target.value);
-    console.log(charName);
+    setName(event.target.value);
+    console.log(name);
   };
 
   return (
     <>
-      <Form onSubmit={() => onSearch(charName)}>
+      <Form onSubmit={() => onSearch()}>
         <Form.Field>
           <label>
             <h3>Search Characters</h3>
             <Form.Input
               onChange={handleInputChange}
               placeholder="name"
-              value={charName}
+              value={searchData.name}
               name="name"
             />
           </label>
         </Form.Field>
         <Button type="submit">Submit</Button>
       </Form>
+      <div className="grid-view">
+        {searchData.map(item => {
+          return <CharacterCard key={item.id} character={item} />;
+        })}
+      </div>
     </>
   );
 }

@@ -12,14 +12,14 @@ import axios from "axios";
 
 export default function App() {
   const [name, setName] = useState("");
-  const [searchChar, setSearchChar] = useState({});
+  const [searchData, setSearchData] = useState([]);
 
   const onSearch = name => {
     axios
       .get(`https://rickandmortyapi.com/api/character/?name=${name}`)
       .then(response => {
-        console.log(response);
-        setSearchChar(response.data.result);
+        setSearchData(response.data.results);
+        console.log(searchData);
       })
       .catch(err => {
         console.log(err);
@@ -33,7 +33,6 @@ export default function App() {
   return (
     <main>
       <Header />
-      {/* <TabNav /> */}
       <TabNav />
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/characters" component={CharacterList} />
@@ -41,9 +40,10 @@ export default function App() {
       <Route exact path="/episodes" component={EpisodeList} />
       <SearchForm
         onSearch={onSearch}
-        charName={name}
-        setCharName={setName}
-        searchChar={searchChar}
+        searchData={searchData}
+        setSearchData={setSearchData}
+        name={name}
+        setName={setName}
       />
     </main>
   );
